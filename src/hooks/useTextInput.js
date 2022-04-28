@@ -34,12 +34,13 @@ export default function useTextInput(inputData) {
     const input = <>
         <label>
             {data.label}
-            <span className="alert">{validation.errorMessage}</span>
+            <span className="alert" data-testid={data.labelTestId}>{validation.errorMessage}</span>
         </label>
         <input type="text" 
                value={data.value}
                maxLength={data.maxLength}
-               onChange={handleOnChange}/>
+               onChange={handleOnChange}
+               data-testid={data.inputTestId}/>
     </>
 
     return [input, data.value, validation.valid];

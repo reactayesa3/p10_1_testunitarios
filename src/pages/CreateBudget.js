@@ -14,7 +14,9 @@ export default function CreateBudget() {
             maxLength: 100,
             errorMessages: ['*','El cliente debe tener al menos 4 caracteres'],
             valid: false,
-            pattern: /^.{4,}$/
+            pattern: /^.{4,}$/,
+            labelTestId: 'test-customer-label',
+            inputTestId: 'test-customer-input',
         },
         cif: {
             label: 'CIF',
@@ -22,7 +24,9 @@ export default function CreateBudget() {
             maxLength: 9,
             errorMessages: ['*','El CIF debe comenzar por letra válida y tener 9 caracteres'],
             valid: false,
-            pattern: /([ABCDEFGHPQS])([0-9]{8})/i
+            pattern: /([ABCDEFGHPQS])([0-9]{8})/i,
+            labelTestId: 'test-cif-label',
+            inputTestId: 'test-cif-input',
         },
         contact: {
             label: 'Persona de contacto',
@@ -30,7 +34,9 @@ export default function CreateBudget() {
             maxLength: 100,
             errorMessages: ['',''],
             valid: true,
-            pattern: /.*/i
+            pattern: /.*/i,
+            labelTestId: 'test-contact-label',
+            inputTestId: 'test-contact-input',
         },
         budgetDate: {
             label: 'Fecha presupuesto',
@@ -142,7 +148,7 @@ export default function CreateBudget() {
                             </div>
                         </div>
                         <div className="row end">
-                            <button type="submit" disabled={!isValidForm}>Añadir</button>
+                            <button data-testid="form-button" type="submit" disabled={!isValidForm}>Añadir</button>
                         </div>
                     </form>
                 </div>
